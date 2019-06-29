@@ -1,6 +1,7 @@
 .ipynb_checkpoints
 .DS_Store
 *.key.txt
+__pycache__
 Untitled Folder/ub.ipynb
 Untitled Folder/kjbk.ipynb
 Untitled Folder/ub.ipynb
