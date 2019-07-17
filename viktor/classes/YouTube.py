@@ -54,19 +54,20 @@ class YouTube:
                     item[prop] = details[0][prop]
 
             # WILDBOOK FORMAT
+            # try:
             newItem = {
                 "videoID": item['id']['videoId'],
                 "title": {
                     "original": item['snippet']['title'],
-                    "eng": item['snippet']['title'], #[Microsoft translate]
+                    "eng": None, #[Microsoft translate]
                 },
                 "tags": {
-                    "original": item['snippet']['tags'],
-                    "eng": item['snippet']['tags'], #[Microsoft translate]
+                    "original": item['snippet'].get('tags', []),
+                    "eng": [], #[Microsoft translate]
                 },
                 "description": {
                     "original": item['snippet']['description'],
-                    "eng": item['snippet']['description'], #[Microsoft translate]
+                    "eng": None, #[Microsoft translate]
                 },
                 "OCR": {
                     "original": [], #[Azure]
@@ -93,6 +94,8 @@ class YouTube:
                 },
                 "fileDetails": None, #[YouTube]
             }
+            # except:
+            #     print(item)
 
             # Saving item in database
             if (save):
